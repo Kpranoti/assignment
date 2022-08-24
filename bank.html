@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <style>
+            .ABC{
+                   background-color:black;
+                   color:white;
+                 }
+           </style>
+        
+        <title>Bank Details </title>
+        <link rel="stylesheet" hrf="style.css">
+
+    </head>
+    <body>
+        <div style="border:2px solid black"></br></br>
+        <label>Actid</label>
+         <input type='text' placeholder='Enter actid' name='actid' id='Actid'></br></br>
+
+         <label>ActName </label>
+         <input type='text' placeholder=' Enter ActName' name='name' id='ActName'></br></br>
+       
+         <label>Address</label>
+         <textarea  placeholder='Enter address' id='Address' rows='4' cols='50'></textarea></br></br>
+        
+          <label>DOB</label>
+          <input type='date' name='dob' id='DOB'></br></br>
+    
+          <label id='Gender'>Gender</label></br>
+          <input type='radio'>Female</br>
+          <input type='radio'>Male</br>
+          <input type='radio'>Other</br></br>
+         
+          <label id='AcctType'>AcctType</label></br>
+          <input type='checkbox'>SB</br>
+          <input type='checkbox'>FD</br>
+          <input type='checkbox'>CB</br>
+          <input type='checkbox'>Loan</br>
+           <center>
+           <button id='btn' onclick='addData()'>Submit</button>
+           </center>
+           </div>
+
+        <div style="border:2px solid black"></br></br>
+            <table border='4' id='show'>
+                <tr>
+                    <th class='ABC'>Actid</th>
+                    <th class='ABC'>ActName</th>
+                    <th class='ABC'>Address</th>
+                    <th class='ABC'>DOB</th>
+                    <th class='ABC'>Gender</th>
+                    <th class='ABC'>AcctType</th>
+                </tr>
+            </table>
+
+            <script>
+                 
+                 var list1=[];
+                 var list2=[];
+                 var list3=[];
+                 var list4=[];
+                 var list5=[];
+                 var list6=[];
+
+                 var n=1;
+                 var x=0;
+
+
+                 function addData(){
+
+                     var addData=document.getElementById('show');
+                     var newRow=addData.insertRow(n);
+
+                     list1[x]=document.getElementById('Actid').value;
+                     list2[x]=document.getElementById('ActName').value;
+                     list3[x]=document.getElementById('Address').value;
+                     list4[x]=document.getElementById('DOB').value;
+                     list5[x]=document.getElementById('Gender').value;
+                     list6[x]=document.getElementById('AcctType').value;
+
+                     var cel1=newRow.insertCell(0);
+                     var cel2=newRow.insertCell(1);
+                     var cel3=newRow.insertCell(2);
+                     var cel4=newRow.insertCell(3);
+                     var cel5=newRow.insertCell(4);
+                     var cel6=newRow.insertCell(5);
+
+                    cel1.innerHTML=list1[x]; 
+                    cel2.innerHTML=list2[x];
+                    cel3.innerHTML=list3[x];
+                    cel4.innerHTML=list4[x];
+                    cel5.innerHTML=list5[x];
+                    cel6.innerHTML=list6[x];
+
+                    n++;
+                    x++;
+           
+                 }
+
+                  function delRow(){
+
+                    show.deleteRow(x);
+                    document.getElementById('Actid').value="";
+                    document.getElementById('ActName').value="";
+                    Address=document.getElementById('Address').value="";
+                    DOB=document.getElementById('DOB').value="";
+                    Gender=document.getElementById('Gender').value="";
+                   AcctType=document.getElementById('AcctType').value="";
+
+
+                 }
+                 function updateRow(){
+
+                    var Actid=document.getElementById('Actid').value;
+                        ActName=document.getElementById('ActName').value;
+                        Address=document.getElementById('Address').value;
+                        DOB=document.getElementById('DOB').value;
+                        Gender=document.getElementById('Gender').value;
+                        AcctType=document.getElementById('AcctType').value;
+
+                        show.rows[x].cells[0].innerHTML=Actid;
+                        show.rows[x].cells[1].innerHTML=ActName;
+                        show.rows[x].cells[2].innerHTML=Address;
+                        show.rows[x].cells[3].innerHTML=DOB;
+                        show.rows[x].cells[4].innerHTML=Gender;
+                        show.rows[x].cells[5].innerHTML=AcctType;
+
+                 }
+
+            </script>
+            <center>
+            <button id='btn1' onclick='delRow()'>Delete</button>
+             <button id='btn2' onclick='updateRow()'>Update</button>
+            </center>
+        
+  </body>
+
+</html>
